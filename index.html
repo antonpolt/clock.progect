@@ -29,7 +29,7 @@
           <a class="header__phone" href="tel:+74999228974">
             +7 (499) 922-89-74
           </a>
-          <button class="button">
+          <button data-modal="consultation" class="button">
             заказать звонок
           </button>
         </div>
@@ -55,7 +55,7 @@
             на все вопросы
           </div>
         </div>
-        <button class="button button_main">
+        <button data-modal="consultation" class="button button_main">
           заказать консультацию
         </button>
         <div class="promo__link">
@@ -111,11 +111,11 @@
         Просто заполните форму заявки <br>
         и мы перезвоним вам в течении 10 минут
       </div>
-      <form class="feed-form" action="#">
-            <input name="" required type="text" placeholder="Ваше ім'я">
-            <input name="" required type="number" placeholder="Ваш телефон">
-            <input name="" required type="email" placeholder="Ваш E-mail">
-            <button class="button button_submit" type="button" name="button">Замовити консультацію</button>
+      <form id="consultation-form"class="feed-form" action="#">
+            <input name="name" type="text" placeholder="Ваше ім'я">
+            <input name="phone" type="number" placeholder="Ваш телефон">
+            <input name="email" type="email" placeholder="Ваш E-mail">
+            <button class="button button_submit">Замовити консультацію</button>
       </form>
     </div>
   </section>
@@ -197,7 +197,7 @@
             <div class="catalog-item__contant catalog-item__contant_active">
               <img src="img/pulsometr.png" alt="pulsometr" class="catalog-item__img">
               <div class="catalog-item__subtitle">
-                Пульсометр Polar FT1
+                Пульсометр Suunto M2
               </div>
               <div class="catalog-item__descr">
                 Для первых шагов в тренировках, основанных на сердечном ритме
@@ -230,7 +230,7 @@
             <div class="catalog-item__contant catalog-item__contant_active">
               <img src="img/pulsometr.png" alt="pulsometr" class="catalog-item__img">
               <div class="catalog-item__subtitle">
-                Пульсометр Polar FT1
+                Пульсометр Polar FT4
               </div>
               <div class="catalog-item__descr">
                 Для первых шагов в тренировках, основанных на сердечном ритме
@@ -510,9 +510,43 @@
       </div>
     </div>
   </footer>
+
+  <div class="overlay">
+    <div class="model" id="consultation">
+      <div class="model__close">&times;</div>
+      <div class="model__subtitle">
+        Просто заполни форму заявки
+      </div>
+      <div class="model__descr">и мы перезвоним вам в течении 10 минут</div>
+      <form class="feed-form feed-form_mt25" action="#">
+        <input name="name" required type="text" placeholder="Ваше ім'я">
+        <input name="phone" required type="number" placeholder="Ваш телефон">
+        <input name="email" required type="email" placeholder="Ваш E-mail">
+        <button class="button button_submit">Замовити консультацію</button>
+      </form>
+    </div>
+    <div class="model" id="order">
+      <div class="model__close">&times;</div>
+      <div class="model__subtitle">Ваш заказ:</div>
+      <div class="model__descr">Пульсометр PolarFT1</div>
+      <form class="feed-form feed-form_mt25" action="#">
+        <input name="name" required type="text" placeholder="Ваше ім'я">
+        <input name="phone" required type="number" placeholder="Ваш телефон">
+        <input name="email" required type="email" placeholder="Ваш E-mail">
+        <button class="button button_submit">Купить</button>
+      </form>
+    </div>
+    <div class="model model_mini" id="thanks">
+      <div class="model__close">&times;</div>
+      <div class="model__subtitle">Спасибо за вашу заявку!</div>
+      <div class="model__descr">Наш менеджер свяжется с вами в ближайшее время!</div>
+    </div>
+  </div>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="js/slick.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

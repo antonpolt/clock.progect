@@ -30,4 +30,50 @@ $(document).ready(function(){
   }
   toggleSlide('.catalog-item__link');
   toggleSlide('.catalog-item__back');
+
+  //modal
+
+  $('[data-modal=consultation]').on('click', function(){
+    $('.overlay, #consultation').fadeIn('slow');
+  });
+  $('.model__close').on('click', function() {
+    $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
+  })
+  $('.button_mini').each(function (i) {
+    $(this).on('click', function () {
+      $('#order .model__descr').text($('.catalog-item__subtitle').eq(i).text());
+      $('.overlay, #order').fadeIn('slow');
+    })
+  });
+
+  function valideForms(form) {
+    $(form).validate({
+      rules:{
+        name: {
+          required: true,
+          minlenght:2
+        },
+        phone: "required",
+        email: {
+          required: true,
+          email: true
+        }
+      },
+      messages: {
+        name: {
+          required: "Напишіть ім'я",
+          minlenght: jQuery.validator.format("Ведіть {0}  символа!")
+        },
+        phone: "Ведіть ваш номер телефону",
+        email: {
+          required: "Напишіть вашу пошту",
+          email: "Не вірна адреса пошти"
+      }
+    }
+    });
+  };
+  valideForms('#consultation-form');
+  valideForms('#consultation form');
+  valideForms('#order form');
+
 });
